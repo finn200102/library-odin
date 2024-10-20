@@ -6,7 +6,12 @@ function Book(author, title, numberOfPages, readingStatus) {
   this.readingStatus = readingStatus;
 }
 
+Book.prototype.toggleRead = function () {
+  this.readingStatus = this.readingStatus == "read" ? "unread" : "read";
+};
+
 function addBookToLibary(book) {
+  console.log("addbook");
   myLibary.push(book);
 }
 
@@ -15,24 +20,39 @@ function showForm() {
 }
 
 function hideForm() {
-  document.getElementById("popup").style.direction = "none";
+  document.getElementById("popup").style.display = "none";
 }
 
-const book1 = new Book("author", "title", 100, true);
-const book2 = new Book("author", "title", 100, true);
-const book3 = new Book("author", "title", 100, true);
-const book4 = new Book("author", "title", 100, true);
+document.getElementById("form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const formData = new FormData(this);
+  const statusCheckbox = document.getElementById("status");
+  formData.set("status", statusCheckbox.checked ? "read" : "unread");
+  const formDataObject = Object.fromEntries(formData.entries());
+  console.log(formDataObject);
+  const book = new Book(
+    formDataObject.author,
+    formDataObject.title,
+    formDataObject.number,
+    formDataObject.status
+  );
+  console.log(book);
+  addBookToLibary(book);
 
-addBookToLibary(book1);
-addBookToLibary(book2);
-addBookToLibary(book3);
-addBookToLibary(book4);
-addBookToLibary(book1);
-addBookToLibary(book2);
-addBookToLibary(book3);
-addBookToLibary(book4);
+  displayLibary();
+  this.reset();
+  hideForm();
+});
+
+function undisplayLibary() {
+  var container = document.getElementById("content");
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+}
 
 function displayLibary() {
+  undisplayLibary();
   const content = document.querySelector(".content");
   for (let i = 0; i < myLibary.length; i++) {
     const book = myLibary[i];
@@ -44,18 +64,25 @@ function displayLibary() {
     const author = document.createElement("li");
     author.textContent = `Author: ${book.author}`;
     const numberOfPages = document.createElement("li");
-    numberOfPages.textContent = `numberOfPage: ${book.numberOfPages}`;
+    numberOfPages.textContent = `Number of pages: ${book.numberOfPages}`;
     const readingStatus = document.createElement("li");
-    readingStatus.textContent = `reading:${book.readingStatus}`;
+    readingStatus.textContent = `Reading status:  ${book.readingStatus}`;
+    const toggleButton = document.createElement("button");
+    toggleButton.textContent = "change";
+    toggleButton.addEventListener("click", function () {
+      myLibary[i].toggleRead();
+      displayLibary();
+      console.log(`${i}`);
+    });
     bookContainer.classList.add("book-container");
     bookContainer.appendChild(title);
     bookInfo.appendChild(author);
     bookInfo.appendChild(numberOfPages);
     bookInfo.appendChild(readingStatus);
     bookInfo.classList.add("book-info");
+
     bookContainer.appendChild(bookInfo);
+    bookContainer.appendChild(toggleButton);
     content.appendChild(bookContainer);
   }
 }
-
-displayLibary();

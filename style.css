@@ -39,9 +39,9 @@ html {
   background-color: var(--book-background);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   max-height: 200px;
-  max-width: max-content;
+  min-width: max-content;
   margin: 20px;
   border-radius: 10px;
   padding-left: 20px;
@@ -51,11 +51,17 @@ html {
 .popup {
   display: none;
   position: absolute;
-  top: 25%;
-  left: 25%;
-  width: 50%;
+  top: 35%;
+  left: 35%;
+  width: 25%;
   height: 20%;
   background-color: var(--header-color);
   border: 5px solid var(--accent-color);
   border-radius: 10px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
 }
