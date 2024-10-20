@@ -53,8 +53,10 @@ html {
   position: absolute;
   top: 35%;
   left: 35%;
-  width: 25%;
-  height: 20%;
+
+  min-width: fit-content;
+  min-height: fit-content;
+  padding: 20px;
   background-color: var(--header-color);
   border: 5px solid var(--accent-color);
   border-radius: 10px;

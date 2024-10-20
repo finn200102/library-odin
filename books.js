@@ -67,6 +67,7 @@ function displayLibary() {
     numberOfPages.textContent = `Number of pages: ${book.numberOfPages}`;
     const readingStatus = document.createElement("li");
     readingStatus.textContent = `Reading status:  ${book.readingStatus}`;
+    // toggle button
     const toggleButton = document.createElement("button");
     toggleButton.textContent = "change";
     toggleButton.addEventListener("click", function () {
@@ -74,7 +75,16 @@ function displayLibary() {
       displayLibary();
       console.log(`${i}`);
     });
+    // remove button
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "remove";
+    removeButton.addEventListener("click", function () {
+      console.log("hi");
+      myLibary.splice(i, 1);
+      displayLibary();
+    });
     bookContainer.classList.add("book-container");
+    bookContainer.appendChild(removeButton);
     bookContainer.appendChild(title);
     bookInfo.appendChild(author);
     bookInfo.appendChild(numberOfPages);
