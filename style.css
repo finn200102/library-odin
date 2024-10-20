@@ -1,0 +1,29 @@
+:root {
+  --header-color: #ad8b73;
+  --background-color: #e3caa5;
+}
+
+body,
+html {
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 8fr;
+  height: 100vh;
+}
+
+.header {
+  background-color: var(--header-color);
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.content {
+  background-color: var(--background-color);
+}
