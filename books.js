@@ -10,6 +10,14 @@ function addBookToLibary(book) {
   myLibary.push(book);
 }
 
+function showForm() {
+  document.getElementById("popup").style.display = "block";
+}
+
+function hideForm() {
+  document.getElementById("popup").style.direction = "none";
+}
+
 const book1 = new Book("author", "title", 100, true);
 const book2 = new Book("author", "title", 100, true);
 const book3 = new Book("author", "title", 100, true);
