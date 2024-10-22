@@ -78,6 +78,7 @@ function displayLibary() {
     // remove button
     const removeButton = document.createElement("button");
     removeButton.textContent = "remove";
+    removeButton.classList.add("remove-button");
     removeButton.addEventListener("click", function () {
       console.log("hi");
       myLibary.splice(i, 1);

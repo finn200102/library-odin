@@ -26,6 +26,18 @@ html {
   padding-right: 20px;
 }
 
+.add-book-holder {
+  margin-top: 20px;
+}
+
+.add-book-button {
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+  aspect-ratio: 2 / 1;
+}
+
 .content {
   background-color: var(--background-color);
   display: grid;
@@ -46,6 +58,7 @@ html {
   border-radius: 10px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 20px;
 }
 
 .popup {
@@ -55,6 +68,7 @@ html {
   left: 35%;
 
   min-width: fit-content;
+  max-width: fit-content;
   min-height: fit-content;
   padding: 20px;
   background-color: var(--header-color);
@@ -65,5 +79,20 @@ html {
 .form {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 10px;
+}
+
+input {
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  width: 200px;
+}
+
+#submit-button {
+  min-height: 25px;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
 }
