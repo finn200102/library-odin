@@ -1,9 +1,11 @@
 const myLibary = [];
-function Book(author, title, numberOfPages, readingStatus) {
-  this.author = author;
-  this.title = title;
-  this.numberOfPages = numberOfPages;
-  this.readingStatus = readingStatus;
+class Book {
+  constructor(author, title, numberOfPages, readingStatus) {
+    this.author = author;
+    this.title = title;
+    this.numberOfPages = numberOfPages;
+    this.readingStatus = readingStatus;
+  }
 }
 
 Book.prototype.toggleRead = function () {
